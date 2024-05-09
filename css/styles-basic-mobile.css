@@ -47,6 +47,10 @@ textarea {
   border: none;
   outline: none;
 }
+
+button {
+  outline: none;
+}
 /* #endregion reset styles */
 /* =================COMMON-STYLES==================== */
 /* #region img, pattern hidden, General Container, common padding section*/
@@ -690,6 +694,10 @@ section {
   opacity: 1;
   pointer-events: auto;
   visibility: visible;
+}
+
+body:has(.modal-overlay.is-open) {
+  overflow: hidden;
 }
 
 .modal {

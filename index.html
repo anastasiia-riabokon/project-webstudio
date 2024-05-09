@@ -22,8 +22,6 @@
       rel="stylesheet"
     />
     <!-- #endregion Link Font Style -->
-    <!-- <link rel="stylesheet" href="./css/styles.css" />
-    <link rel="stylesheet" href="./css/styles-adapt.css" /> -->
 
     <link rel="stylesheet" href="./css/styles-basic-mobile.css" />
     <link rel="stylesheet" href="./css/styles-tablet-desktop.css" />
@@ -58,12 +56,15 @@
               >
             </li>
             <li>
-              <a href="" class="nav-link" aria-label="Go to tab Portfolio"
+              <a
+                href="#portfolio"
+                class="nav-link"
+                aria-label="Go to tab Portfolio"
                 >Portfolio</a
               >
             </li>
             <li>
-              <a href="" class="nav-link" aria-label="Go to tab Contacts"
+              <a href="#" class="nav-link" aria-label="Go to tab Contacts"
                 >Contacts</a
               >
             </li>
@@ -100,7 +101,9 @@
       <section class="main-page">
         <div class="container">
           <h1 class="main-title">Effective Solutions for&nbsp;Your Business</h1>
-          <button type="button" class="main-button">Order Service</button>
+          <button id="btnOpenModal" type="button" class="main-button">
+            Order Service
+          </button>
         </div>
       </section>
       <!-- #endregion Main Page -->
@@ -492,7 +495,7 @@
       <!-- #endregion  Page "Our Team" -->
 
       <!-- #region Page "Our Portfolio" -->
-      <section class="main-page-portfolio">
+      <section id="portfolio" class="main-page-portfolio">
         <div class="container">
           <h2 class="title-section">Our Portfolio</h2>
           <!-- Icon Portfolio -->
@@ -966,5 +969,7 @@
       </div>
     </div>
     <!-- #endregion Modal Menu -->
+
+    <script type="module" src="./js/main.js" defer></script>
   </body>
 </html>

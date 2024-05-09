@@ -35,8 +35,6 @@ document.addEventListener('keydown', event => {
 function handleModalClick(event) {
   const btn = event.target;
 
-  if (btn.nodeName !== 'BUTTON') return;
-
   ref.backdropModal.classList.toggle('is-open');
 
   if (btn === ref.btnClose || event.code === 'Escape') {

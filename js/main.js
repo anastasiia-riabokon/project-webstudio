@@ -27,8 +27,6 @@ function handleNavClick(event) {
   }
 }
 
-ref.navList.addEventListener('touchstart', handleNavTouch);
-
 // #endregion
 
 // #region Open/Close Modal

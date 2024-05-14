@@ -1,5 +1,6 @@
 const ref = {
   navList: document.querySelector('.studio-portf-cont'),
+  navListMenu: document.querySelector('.studio-portf-cont-menu'),
   modalElement: document.querySelector('.modal'),
   backdropModal: document.querySelector('.modal-overlay'),
   btnOpenModal: document.getElementById('btnOpenModal'),
@@ -9,56 +10,68 @@ const ref = {
   menuMobile: document.querySelector('.modal-menu'),
 };
 
-// #region Navigation
-ref.navList.addEventListener('click', handleNavClick);
+const {
+  navList,
+  navListMenu,
+  modalElement,
+  backdropModal,
+  btnOpenModal,
+  btnCloseModal,
+  btnOpenMenu,
+  btnCloseMobileMenu,
+  menuMobile,
+} = ref;
 
-function handleNavClick(event) {
+// #region Navigation
+navList.addEventListener('click', event => handleNavClick(event, navList));
+
+navListMenu.addEventListener('click', event =>
+  handleNavClick(event, navListMenu)
+);
+
+function handleNavClick(event, navigationList) {
   const currentLink = event.target;
-  const activeLink = ref.navList.querySelector('.active');
+  const activeLink = navigationList.querySelector('.active');
 
   if (currentLink === event.currentTarget) return;
 
-  if (
-    !currentLink.classList.contains('active') &&
-    activeLink.classList.contains('active')
-  ) {
+  if (!currentLink.classList.contains('active')) {
     activeLink.classList.remove('active');
     currentLink.classList.add('active');
+    if (window.matchMedia('(max-width: 768px)').matches) {
+      closeModal(menuMobile, btnCloseMobileMenu);
+    }
   }
 }
 
 // #endregion
 
-// #region Open/Close Modal
-ref.btnOpenModal.addEventListener('click', handleModalClick);
-ref.btnOpenModal.addEventListener('touchstart', handleModalClick);
-ref.btnCloseModal.addEventListener('click', handleModalClick);
-ref.btnCloseModal.addEventListener('touchstart', handleModalClick);
-document.addEventListener('keydown', event => {
-  if (event.code === 'Escape') handleModalClick(event);
-});
+// #region Open/Close modal windows
 
-function handleModalClick(event) {
-  const btn = event.target;
+//todo Функція для відкриття модального вікна
+function openModal(modal, closeButton) {
+  modal.classList.add('is-open');
+  backdropModal.classList.add('is-open');
 
-  ref.backdropModal.classList.toggle('is-open');
-
-  if (btn === ref.btnClose || event.code === 'Escape') {
-    ref.backdropModal.classList.remove('is-open');
-  }
+  closeButton.addEventListener('click', () => closeModal(modal, closeButton));
 }
 
-// #endregion
-
-// #region Open/Close mobile menu
-ref.btnOpenMenu.addEventListener('touchstart', handleMenuClick);
-ref.btnCloseMobileMenu.addEventListener('touchstart', handleMenuClick);
-
-function handleMenuClick(event) {
-  const btn = event.target;
-
-  ref.menuMobile.classList.toggle('is-open');
-
-  if (btn === ref.btnClose) ref.menuMobile.classList.remove('is-open');
+//todo Функція для закриття модального вікна
+function closeModal(modal, closeButton) {
+  modal.classList.remove('is-open');
+  backdropModal.classList.remove('is-open');
+  // Видаляємо обробник події для кнопки закриття
+  closeButton.removeEventListener('click', () =>
+    closeModal(modal, closeButton)
+  );
 }
+
+// Додаємо обробник події для кнопки відкриття модального вікна
+btnOpenModal.addEventListener('click', () =>
+  openModal(backdropModal, btnCloseModal)
+);
+
+btnOpenMenu.addEventListener('click', () =>
+  openModal(menuMobile, btnCloseMobileMenu)
+);
 // #endregion

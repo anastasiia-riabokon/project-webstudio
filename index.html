@@ -23,6 +23,12 @@
     />
     <!-- #endregion Link Font Style -->
 
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/basiclightbox@5.0.4/dist/basicLightbox.min.css"
+      integrity="sha256-r7Neol40GubQBzMKAJovEaXbl9FClnADCrIMPljlx3E="
+      crossorigin="anonymous"
+    />
     <link rel="stylesheet" href="./css/styles-basic-mobile.css" />
     <link rel="stylesheet" href="./css/styles-tablet-desktop.css" />
   </head>
@@ -64,7 +70,10 @@
               >
             </li>
             <li>
-              <a href="#" class="nav-link" aria-label="Go to tab Contacts"
+              <a
+                href="#contacts"
+                class="nav-link"
+                aria-label="Go to tab Contacts"
                 >Contacts</a
               >
             </li>
@@ -662,7 +671,7 @@
     </main>
 
     <!-- #region Footer -->
-    <footer class="footer-page">
+    <footer class="footer-page" id="contacts">
       <div class="container">
         <div class="container-logo-text">
           <a href="./index.html" class="logo" aria-label="Logotype WebStudio">
@@ -891,7 +900,7 @@
           >
         </li>
         <li>
-          <a href="" class="nav-link" aria-label="Go to tab Contacts"
+          <a href="#contacts" class="nav-link" aria-label="Go to tab Contacts"
             >Contacts</a
           >
         </li>
@@ -970,6 +979,11 @@
     </div>
     <!-- #endregion Modal Menu -->
 
+    <script
+      src="https://cdn.jsdelivr.net/npm/basiclightbox@5.0.4/dist/basicLightbox.min.js"
+      integrity="sha256-nMn34BfOxpKD0GwV5nZMwdS4e8SI8Ekz+G7dLeGE4XY="
+      crossorigin="anonymous"
+    ></script>
     <script type="module" src="./js/main.js" defer></script>
   </body>
 </html>
